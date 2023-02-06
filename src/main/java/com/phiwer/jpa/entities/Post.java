@@ -10,6 +10,7 @@ public class Post {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
     public Long getId() {
         return id;
     }

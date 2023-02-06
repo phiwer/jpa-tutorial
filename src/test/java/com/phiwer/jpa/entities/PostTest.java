@@ -1,13 +1,18 @@
-package com.phiwer.jpa;
+package com.phiwer.jpa.entities;
 
-import com.phiwer.jpa.entities.Post;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import org.junit.jupiter.api.Test;
 
-public class Main {
-    public static void main(String[] args) {
+import static org.junit.jupiter.api.Assertions.*;
+
+class PostTest {
+
+    @Test
+    void test() {
+        // Arrange
         EntityManagerFactory entityManagerFactory =
                 Persistence.createEntityManagerFactory("jpa-local");
 
@@ -15,10 +20,13 @@ public class Main {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
+        // Act
         entityManager.persist(new Post());
 
         transaction.commit();
 
-        System.exit(0);
+        // Assert
+
     }
+
 }
